@@ -1,0 +1,6 @@
+evalua
+-456.12 * vacas + 0.34 * (ovejas + cabras)^2
+donde
+	vacas = 567.12.5,
+	ovejas = 456,
+	cabras = 10

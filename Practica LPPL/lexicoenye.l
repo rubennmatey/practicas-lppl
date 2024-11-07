@@ -23,9 +23,13 @@ package alex;
   ops = new ALexOperations(this);
 %init}
 
-ñhar  = ([A-Z]|[a-z])
+letra  = ([A-Z]|[a-z]|[ñ-Ñ])
+ñue = ñue
+ñalse = ñalse
 digitoPositivo = [1-9]
 digito = ({digitoPositivo}|0)
+simboloConOperadores = [_-¿?¡!$(){}[].,+-*/\<>&%@€:;]
+simboloSinOperadores = [_-¿?¡!$(){}[]:]
 
 parteEntera = {digito}*
 parteDecimal = {digito}* {digitoPositivo}
@@ -33,18 +37,39 @@ parteDecimal = {digito}* {digitoPositivo}
 separador = [ \t\r\b\n]
 comentario = #[^\n]* 
 
-identificador = (_|{letra})({letra}|{digito})*
-ñint = [\+\-]?{parteEntera}
-ñouble = [\+\-]?{parteEntera}\.{parteDecimal}
+identificador = ({letra})({simboloSinOperadores}|{digito}|{letra})* 
+ñint = ñint
+valorÑint = [\+\-]?{parteEntera}
+ñouble = ñouble
+valorÑouble = [\+\-]?{parteEntera}\.{parteDecimal}
+ñhar = ñhar
+valorÑhar = ({letra}|{simboloConOperadores}|{digito})
+ñtring = ñtring
+valorÑtring = ({ñhar}|{digito})*
+ñoolean = ñoolean
+valorÑoolean = ({ñue}|{ñalse})
+ñif = ñif
+ñelsif = ñelsif
+ñelse = ñelse
+ñor = ñor
+ñhile = ñhile
+ño = ño
 operadorSuma = \+
 operadorResta = \-
 operadorMultiplicacion = \*
 operadorDivision = \/
+operadorMenor = menor
+operadorMayor = mayor
+operadorMenorIgual = menorigual
+operadorMayorIgual = mayorigual
 parentesisApertura = \(
 parentesisCierre = \)
 igual = \>\<
 igualApertura = \<
 igualCierre = \>
+barrabaja = \_
+constante = \¢
+arroba = \@
 
 coma  = ,
 %%

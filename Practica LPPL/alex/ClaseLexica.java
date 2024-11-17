@@ -31,7 +31,7 @@ public class ClaseLexica {
   public static final int MAY = 28;
   public static final int MENI = 29;
   public static final int MAYI = 30;
-  public static final int ID = 31;
+  public static final int IDEN = 31;
   public static final int PAP = 32;
   public static final int PCIERRE = 33;
   public static final int TAP = 34;

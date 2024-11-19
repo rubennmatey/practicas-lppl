@@ -23,15 +23,14 @@ package alex;
   ops = new ALexOperations(this);
 %init}
 
-letra  = ([A-Z]|[a-z]|[ñ-Ñ])
+letra  = ([A-Z]|[a-z]|[Ñ-ñ])
 ñue = ñue
 ñalse = ñalse
 digitoPositivo = [1-9]
 digito = ({digitoPositivo}|0)
-simboloConOperadores = [_-¿?¡!$(){}[].,+-*/\<>&%@€:;]
-simboloSinOperadores = [_-¿?¡!$(){}[]:]
 
-parteEntera = {digito}*
+
+parteEntera = {digito}{digito}*
 parteDecimal = {digito}* {digitoPositivo}
 
 separador = [ \t\r\b\n]
@@ -43,9 +42,9 @@ valorÑint = [\+\-]?{parteEntera}
 ñouble = ñouble
 valorÑouble = [\+\-]?{parteEntera}\.{parteDecimal}
 ñhar = ñhar
-valorÑhar = ({letra}|{simboloConOperadores}|{digito})
+valorÑhar = ({letra}|{digito})
 ñtring = ñtring
-valorÑtring = ({valorÑhar}|{digito})*
+valorÑtring = ({valorÑhar}|{digito})({valorÑhar}|{digito})*
 ñoolean = ñoolean
 valorÑoolean = ({ñue}|{ñalse})
 ñif = ñif
@@ -65,15 +64,18 @@ operadorMenor = menor
 operadorMayor = mayor
 operadorMenorIgual = menorigual
 operadorMayorIgual = mayorigual
-identificador = ({letra})({simboloSinOperadores}|{digito}|{letra})* 
 parentesisApertura = \(
 parentesisCierre = \)
-tamañoApertura = \/
-tamañoCierre = \\
+tamaño = \\
 igual = \>\<
 igualApertura = \<
 igualCierre = \>
+llaveApertura = \{
+llaveCierre = \}
+puntoComa = \;
+comillas = \"
 barrabaja = \_
+identificador = ({barrabaja})({letra})({digito}|{letra})* 
 constante = \¢
 arroba = \@
 coma  = ,
@@ -85,7 +87,6 @@ coma  = ,
 {valorÑint}               {return ops.unidadEnt();}
 {valorÑouble}             {return ops.unidadReal();}
 {valorÑhar}               {return ops.unidadChar();}
-{valorÑtring}             {return ops.unidadStr();}
 {valorÑoolean}            {return ops.unidadBool();}
 {ñint}                    {return ops.unidadÑint();}
 {ñouble}                  {return ops.unidadÑouble();}
@@ -101,8 +102,6 @@ coma  = ,
 {ñun}                     {return ops.unidadÑun();}
 {ñoid}                    {return ops.unidadÑoid();}
 {ñeturn}                  {return ops.unidadÑeturn();}
-{ñue}                     {return ops.unidadÑue();}
-{ñalse}                   {return ops.unidadÑalse();}
 {operadorSuma}            {return ops.unidadSuma();}
 {operadorResta}           {return ops.unidadResta();}
 {operadorMultiplicacion}  {return ops.unidadMul();}
@@ -111,17 +110,21 @@ coma  = ,
 {operadorMayor}           {return ops.unidadMayor();}
 {operadorMenorIgual}      {return ops.unidadMenorIgual();}
 {operadorMayorIgual}      {return ops.unidadMayorIgual();}
+{valorÑtring}             {return ops.unidadStr();}
 {identificador}           {return ops.unidadId();}
 {parentesisApertura}      {return ops.unidadPAp();}
 {parentesisCierre}        {return ops.unidadPCierre();} 
-{tamañoApertura}          {return ops.unidadTAp();}
-{tamañoCierre}            {return ops.unidadTCierre();}
+{tamaño}                  {return ops.unidadTam();}
 {igual}                   {return ops.unidadIgual();} 
 {igualApertura}           {return ops.unidadIAp();}
 {igualCierre}             {return ops.unidadICierre();}
+{llaveApertura}           {return ops.unidadLLAp();}
+{llaveCierre}             {return ops.unidadLLCierre();}
+{puntoComa}               {return ops.unidadPC();}
+{comillas}                {return ops.unidadComillas();}
 {barrabaja}               {return ops.unidadBar();}
 {constante}               {return ops.unidadConst();}
-{arroba}                  {return ops.undadArroba();}
+{arroba}                  {return ops.unidadArroba();}
 {coma}                    {return ops.unidadComa();}
 [^]                       {ops.error();}  
 

@@ -4,6 +4,8 @@
 
 package alex;
 
+import alex.ALexOperations;
+import alex.UnidadLexica;
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")

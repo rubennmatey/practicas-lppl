@@ -1,4 +1,6 @@
-package alex;
+package alex_Lab1;
+
+import alex.TokenValue;
 
 public class UnidadLexica extends Symbol {
     public UnidadLexica(int fila, int columna, int clase) {

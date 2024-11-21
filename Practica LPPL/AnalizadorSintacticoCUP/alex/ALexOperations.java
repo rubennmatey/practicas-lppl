@@ -1,5 +1,9 @@
    package alex;
 
+import alex.AnalizadorLexicoTiny;
+import asint.ClaseLexica;
+import alex.UnidadLexica;
+
 public class ALexOperations {
    private AnalizadorLexicoTiny alex;
    public ALexOperations(AnalizadorLexicoTiny alex) {

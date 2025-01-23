@@ -1,18 +1,24 @@
 package alex;
 
+import errors.GestionErroresTiny;
+
 %%
-%char
+%cup
 %line
 %column
 %class AnalizadorLexicoTiny
-%type  UnidadLexica
 %unicode
+%public
 
 %{
   private ALexOperations ops;
+  private GestionErroresTiny errores;
   public String lexema() {return yytext();}
   public int fila() {return yyline+1;}
   public int columna() {return yycolumn+1;}
+  public void fijaGestionErrores(GestionErroresTiny errores) {
+   this.errores = errores;
+  }
 %}
 
 %eofval{
@@ -79,6 +85,8 @@ identificador = ({barrabaja})({letra})({digito}|{letra})*
 constante = \¢
 arroba = \@
 coma  = ,
+ñotIgual = \!\>\<
+ñot = \!
 %%
 {separador}               {}
 {comentario}              {}
@@ -126,5 +134,6 @@ coma  = ,
 {constante}               {return ops.unidadConst();}
 {arroba}                  {return ops.unidadArroba();}
 {coma}                    {return ops.unidadComa();}
-[^]                       {ops.error();}  
-
+{ñotIgual}                {return ops.unidadÑotIgual();}
+{ñot}                     {return ops.unidadÑot();}
+[^]                       {errores.errorLexico(fila(),columna(),lexema());}  

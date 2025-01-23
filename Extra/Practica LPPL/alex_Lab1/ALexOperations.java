@@ -134,6 +134,12 @@ public class ALexOperations {
    } 
    public UnidadLexica unidadComa() {
       return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.COMA); 
+   }
+   public UnidadLexica unidadÑotIgual() {
+      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ÑOT); 
+   }
+   public UnidadLexica unidadÑot() {
+      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ÑOTIGUAL); 
    } 
    public UnidadLexica unidadEof() {
       return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.EOF); 

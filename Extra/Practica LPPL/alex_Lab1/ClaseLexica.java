@@ -44,4 +44,6 @@ public class ClaseLexica {
   public static final int CONST = 41;
   public static final int ARBA = 42;
   public static final int COMA = 43;
+  public static final int ÑOTIGUAL = 44;
+  public static final int ÑOT = 45;
 }

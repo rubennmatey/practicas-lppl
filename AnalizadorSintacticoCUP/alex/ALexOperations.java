@@ -1,6 +1,6 @@
 package alex;
 
-import AnalizadorSintacticoCUP.asint.ClaseLexica;
+import asint.ClaseLexica;
 
 public class ALexOperations {
    private AnalizadorLexicoTiny alex;

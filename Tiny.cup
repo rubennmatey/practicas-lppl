@@ -3,6 +3,7 @@ package asint;
 import java_cup.runtime.*;
 import alex.AnalizadorLexicoTiny;
 import alex.UnidadLexica;
+import alex.TokenValue;
 import errors.GestionErroresTiny;
 
 scan with {: return getScanner().next_token(); :};

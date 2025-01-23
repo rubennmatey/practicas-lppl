@@ -9,6 +9,7 @@ package asint;
 /** CUP generated class containing symbol constants. */
 public class ClaseLexica {
   public static final int EOF = 0;
+  public static final int error = 1;
   public static final int ENT = 2;
   public static final int REAL = 3;
   public static final int CHAR = 4;

@@ -9,6 +9,7 @@ import errors.GestionErroresTiny;
 %class AnalizadorLexicoTiny
 %unicode
 %public
+%char
 
 %{
   private ALexOperations ops;

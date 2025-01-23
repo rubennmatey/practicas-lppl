@@ -15,7 +15,7 @@ public class ALexOperations {
       return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ENT,alex.lexema()); 
    } 
    public UnidadLexica unidadReal() {
-      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.REAL,alex.lexema()); 
+      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.REAL ,alex.lexema()); 
    } 
    public UnidadLexica unidadChar() {
       return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.CHAR,alex.lexema()); 
@@ -143,8 +143,4 @@ public class ALexOperations {
    public UnidadLexica unidadEof() {
       return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.EOF); 
    }
-   public void error() {
-      System.err.println("***"+alex.fila()+", "+alex.columna()+" Caracter inesperado: "+alex.lexema());
-   }
-
 }

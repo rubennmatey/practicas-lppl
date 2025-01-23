@@ -1,6 +1,0 @@
-evalua
--a + b
-donde
-	vacas = 567
-	ovejas = 456,
-	cabras = 10
